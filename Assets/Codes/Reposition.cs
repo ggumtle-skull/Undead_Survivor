@@ -36,6 +36,10 @@ public class Reposition : MonoBehaviour
                 {
                     transform.Translate(Vector3.up * dirY * 40);
                 }
+                else if(diffY == diffX)
+                {
+                    transform.Translate(dirX * 40, dirY * 40, 0);
+                }
                 break;
             case "Enemy":
                 if(coll.enabled)
