@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
             Spawn();
             timer = 0;
         }
-        if(timer2 > 3f && level != 0)
+        if(timer2 > 0.5f + spawnData[level].spawnTime && level != 0)
         {
             mobSpawn();
             timer2 = 0;
