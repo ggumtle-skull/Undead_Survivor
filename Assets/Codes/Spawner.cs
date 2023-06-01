@@ -29,7 +29,6 @@ public class Spawner : MonoBehaviour
 
         if (timer > spawnData[level].spawnTime)
         {
-            if (GameManager.instance.gameTime < GameManager.instance.maxGameTime / 2) Spawn();
             Spawn();
             timer = 0;
         }
