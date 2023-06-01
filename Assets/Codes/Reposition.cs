@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    public static Reposition Instance;
     Collider2D coll;
 
     private void Awake()
     {
         coll = GetComponent<Collider2D>();
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area"))
             return;

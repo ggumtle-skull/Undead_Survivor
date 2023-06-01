@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         player = GameManager.instance.player;
+
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class Weapon : MonoBehaviour
 
                 if (timer > speed)
                 {
-                    timer = 0;
+                    timer = 0f;
                     Fire();
                 }
                 break;
@@ -68,7 +69,7 @@ public class Weapon : MonoBehaviour
         damage = data.baseDamage * Charactor.Damage;
         count = data.baseCount;
 
-        for (int index=0; index < GameManager.instance.pool.prefabs.Length; index++)
+        for (int index=0; index <= GameManager.instance.pool.prefabs.Length; index++)
         {
             if(data.projectile == GameManager.instance.pool.prefabs[index])
             {
@@ -84,10 +85,15 @@ public class Weapon : MonoBehaviour
                 Batch();
 
                 break;
+            case 5:
+                speed = 0.8f * Charactor.WeaponRate;
+                break;
             default:
                 speed = 0.5f * Charactor.WeaponRate;
                 break;
         }
+
+        
 
         player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }

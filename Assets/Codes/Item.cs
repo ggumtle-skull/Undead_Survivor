@@ -40,6 +40,14 @@ public class Item : MonoBehaviour
             case ItemData.ItemType.Shoe:
                 textDesc.text = string.Format(data.itemDesc, data.damages[level] * 100);
                 break;
+            case ItemData.ItemType.Wand:
+                if (level == 0)
+                {
+                    textDesc.text = "그대 마법을 쓰고싶나?";
+                }
+                else
+                    textDesc.text = string.Format(data.itemDesc, data.damages[level] * 100, data.counts[level]);
+                break;
             default:
                 textDesc.text = string.Format(data.itemDesc);
                 break;
@@ -54,6 +62,7 @@ public class Item : MonoBehaviour
         {
             case ItemData.ItemType.Melee:
             case ItemData.ItemType.Range:
+            case ItemData.ItemType.Wand:
                 if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();

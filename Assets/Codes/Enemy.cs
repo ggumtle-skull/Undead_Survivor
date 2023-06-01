@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static Enemy instance;
     public float speed;
     public float health;
     public float maxHealth;
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
         wait = new WaitForFixedUpdate();
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         if (!GameManager.instance.isLive)
             return;
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
         rigid.velocity = Vector2.zero;
     }
 
-    private void LateUpdate()
+    public void LateUpdate()
     {
         if (!GameManager.instance.isLive)
             return;
@@ -91,11 +92,6 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
             GameManager.instance.GetExp();
-
-            if (GameManager.instance.isLive)
-            {
-                AudioManager.instance.PlaySfx(AudioManager.Sfx.Dead);
-            }
         }
     }
 
