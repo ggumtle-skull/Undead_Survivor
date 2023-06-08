@@ -40,13 +40,13 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    void Spawn()
+     public void Spawn()
     {
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
     }
-    void mobSpawn()
+    public void mobSpawn()
     {
         GameObject enemy = GameManager.instance.pool.Get(0);
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
@@ -61,4 +61,5 @@ public class SpawnData
     public int spriteType;
     public int health;
     public float speed;
+    public int exp;
 }

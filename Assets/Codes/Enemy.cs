@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+    public int exp;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
 
@@ -68,6 +69,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+        exp = data.exp;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -91,7 +93,7 @@ public class Enemy : MonoBehaviour
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
             GameManager.instance.kill++;
-            GameManager.instance.GetExp();
+            GameManager.instance.GetExp(exp);
         }
     }
 
